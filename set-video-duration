@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo Times are in hh:mm:ss format.
+echo Enter start time:
+read startTime
+echo Enter stop time:
+read stopTime
+
+startTimeSeconds=$(echo $startTime | awk -F: '{ print ($1 * 3600) + ($2 * 60) + $3 }')
+stopTimeSeconds=$(echo $stopTime | awk -F: '{ print ($1 * 3600) + ($2 * 60) + $3 }')
+
+videoDurationSeconds=$((stopTimeSeconds - startTimeSeconds))
+
+echo -H start-at=duration:$startTimeSeconds -H stop-at=duration:$videoDurationSeconds
