@@ -1,4 +1,5 @@
 ./set-video-duration start-time end-time
+
 format is hh:mm:ss
 
 todo:
